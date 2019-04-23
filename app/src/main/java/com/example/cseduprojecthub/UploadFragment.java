@@ -14,6 +14,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +66,7 @@ public class UploadFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String nm,ds,pl,gl,yr;
-                if(name.getText().toString()!=null && name.getText().toString().length()==0)
+                if(name.getText().toString()!=null && name.getText().toString().length()!=0)
                 {
                     nm=name.getText().toString();
                 }
@@ -69,7 +74,7 @@ public class UploadFragment extends Fragment {
                 {
                     nm="N/A";
                 }
-                if(description.getText().toString()!=null && description.getText().toString().length()==0)
+                if(description.getText().toString()!=null && description.getText().toString().length()!=0)
                 {
                     ds=description.getText().toString();
                 }
@@ -77,6 +82,35 @@ public class UploadFragment extends Fragment {
                 {
                     ds="N/A";
                 }
+                if(paper.getText().toString()!=null && paper.getText().toString().length()!=0)
+                {
+                    pl=paper.getText().toString();
+                }
+                else
+                {
+                    pl="N/A";
+                }
+                if(github.getText().toString()!=null && github.getText().toString().length()!=0)
+                {
+                    gl=github.getText().toString();
+                }
+                else
+                {
+                    gl="N/A";
+                }
+                ProjectCard pr=new ProjectCard();
+                FirebaseAuth mauth=FirebaseAuth.getInstance();
+                FirebaseUser current=mauth.getCurrentUser();
+
+                pr.setAuthor(current.getEmail());
+                pr.setProjectName(nm);
+                pr.setProjectDescroption(ds);
+                pr.setPaperLink(pl);
+                pr.setGithubLink(gl);
+                pr.setYear(y);
+                FirebaseDatabase database=FirebaseDatabase.getInstance();
+                DatabaseReference ref=database.getReference("Projects");
+                ref.push().setValue(pr);
             }
         });
         year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
