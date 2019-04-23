@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1011227060317",
+    "firebase_url": "https://cseduprojecthub.firebaseio.com",
+    "project_id": "cseduprojecthub",
+    "storage_bucket": "cseduprojecthub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011227060317:android:fcded95686a38275",
+        "android_client_info": {
+          "package_name": "com.example.cseduprojecthub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011227060317-i9lm0cb38hmvit131lp67ltg4nrv3781.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt2Waj4AATVelpbhnSFqZr2hP3zgEk4rU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011227060317-i9lm0cb38hmvit131lp67ltg4nrv3781.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
