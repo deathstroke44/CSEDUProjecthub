@@ -91,7 +91,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/glink"
         android:id="@+id/b6"
-        android:background="@mipmap/ic_launcher"
         android:layout_alignParentRight="true"/>
 </RelativeLayout>
     </ScrollView>
