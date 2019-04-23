@@ -14,12 +14,17 @@
         android:id="@+id/webview">
 
     </WebView>
-
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/webview">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Project Name"
-        android:layout_below="@id/webview"
         android:id="@+id/name"
         android:padding="@dimen/activity_horizontal_margin"
 
@@ -80,8 +85,8 @@
         android:layout_below="@id/glink"
         android:id="@+id/b6"
         android:layout_alignParentRight="true"/>
-
-
+</RelativeLayout>
+    </ScrollView>
 
 
 
