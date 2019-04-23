@@ -21,10 +21,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_below="@+id/webview">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl1"
+        android:background="#111155"
+        android:paddingBottom="@dimen/fab_margin">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Project Name"
+        android:textColor="#FFFFFF"
         android:id="@+id/name"
         android:padding="@dimen/activity_horizontal_margin"
 
@@ -39,15 +46,15 @@
         android:layout_below="@id/name"
         android:id="@+id/year"
         android:textSize="12dp"
-
+        android:textColor="#FFFFFF"
         />
-
+    </RelativeLayout>
     <TextView
         android:padding="@dimen/activity_horizontal_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Project desc"
-        android:layout_below="@id/year"
+        android:layout_below="@id/rl1"
         android:id="@+id/desc"
 
         />
@@ -84,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/glink"
         android:id="@+id/b6"
+        android:background="@mipmap/ic_launcher"
         android:layout_alignParentRight="true"/>
 </RelativeLayout>
     </ScrollView>

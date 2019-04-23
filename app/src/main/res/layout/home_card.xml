@@ -12,30 +12,33 @@
         android:layout_height="wrap_content">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="12dp"
-            android:background="#0000FF"
-            android:id="@+id/upp"></RelativeLayout>
+            android:layout_height="wrap_content"
+            android:background="#111155"
+            android:id="@+id/upp"
+            android:layout_marginBottom="8dp">
         <TextView
-            android:layout_below="@+id/upp"
             android:padding="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/t1"/>
+            android:id="@+id/t1"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+        </RelativeLayout>
         <TextView
-            android:padding="4dp"
+            android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/t1"
+            android:layout_below="@+id/upp"
             android:id="@+id/t2"/>
         <TextView
-            android:padding="4dp"
+            android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/t2"
             android:id="@+id/t3"
             android:autoLink="web"/>
         <TextView
-            android:padding="4dp"
+            android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/t3"
@@ -55,7 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/t4"
             android:id="@+id/b6"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            />
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
