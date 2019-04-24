@@ -13,18 +13,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    private DatabaseReference mDatabase;
+    private User curr;
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        mAuth=FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         HomeFragment fragment=new HomeFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame,fragment);
@@ -48,6 +67,19 @@ public class home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View hView =  navigationView.getHeaderView(0);
+        ImageView imageView=hView.findViewById(R.id.imageViewp);
+        StorageReference storageRef;// = FirebaseStorage.getInstance().getReference();
+        StorageReference forestRef;
+
+        storageRef = FirebaseStorage.getInstance().getReference();
+        forestRef = storageRef.child("profile/"+currentUser.getEmail()+".jpg");
+        Glide.with(getBaseContext()).using(new FirebaseImageLoader())
+                .load(forestRef)
+                .transform(new CircleTransform(getBaseContext()))
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .into(imageView);
+
     }
 
     @Override

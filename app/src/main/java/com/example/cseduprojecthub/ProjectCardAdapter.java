@@ -61,11 +61,11 @@ public class ProjectCardAdapter extends RecyclerView.Adapter<ProjectCardAdapter.
         sViewHolder.t1.setText(obj.projectName);
         sViewHolder.projectCard=obj;
         //sViewHolder.t2.setText(obj.projectDescroption);
-        sViewHolder.t2.setText("Author: "+obj.author);
+        sViewHolder.t2.setText(obj.author+", "+obj.year+", "+obj.topic);
         //sViewHolder.t3.setText(obj.paperLink);
         sViewHolder.t3.setText("Year: "+obj.year);
         //sViewHolder.t4.setText(obj.githubLink);
-        sViewHolder.t4.setText("Research Field: "+obj.topic);
+        sViewHolder.t4.setText("Abstract: "+obj.projectDescroption);
         sViewHolder.pdf_url=obj.paperLink;
         sViewHolder.b5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +84,7 @@ public class ProjectCardAdapter extends RecyclerView.Adapter<ProjectCardAdapter.
             }
         });
         sViewHolder.b5.setVisibility(View.GONE);
+        sViewHolder.t3.setVisibility(View.GONE);
         //sViewHolder.b6.setVisibility(View.GONE);
 
     }

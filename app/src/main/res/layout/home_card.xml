@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    android:layout_width="match_parent"
+<android.support.v7.widget.CardView android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="8dp"
     android:layout_margin="4dp"
+    app:cardMaxElevation="4dp"
     android:id="@+id/cv"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
@@ -22,28 +23,34 @@
             android:layout_height="wrap_content"
             android:id="@+id/t1"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:text="Omi"
+            android:textSize="16dp"/>
         </RelativeLayout>
         <TextView
             android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/upp"
-            android:id="@+id/t2"/>
+            android:id="@+id/t2"
+            android:textColor="@color/colorPrimaryDark"/>
         <TextView
             android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/t2"
             android:id="@+id/t3"
-            android:autoLink="web"/>
+            android:autoLink="web"
+            android:textColor="@color/colorPrimaryDark"/>
         <TextView
             android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/t3"
             android:id="@+id/t4"
-            android:autoLink="web"/>
+            android:maxLines="5"
+            android:ellipsize="marquee"
+            android:textColor="@color/colorPrimaryDark"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +66,7 @@
             android:layout_below="@id/t4"
             android:id="@+id/b6"
             android:layout_alignParentRight="true"
+
             />
         <View
             android:layout_width="match_parent"

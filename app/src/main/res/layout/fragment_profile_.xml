@@ -12,23 +12,30 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rrr"
+            android:background="#225779">
     <ImageView
         android:paddingTop="16dp"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/pic"
-        android:src="@drawable/nightwing"/>
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/fab_margin"/>
+
+        </RelativeLayout>
     <TextView
         android:paddingTop="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Name: Nightwing"
         android:textStyle="bold"
         android:textSize="@dimen/fab_margin"
-        android:layout_below="@+id/pic"
+        android:layout_below="@+id/rrr"
         android:id="@+id/t1"/>
         <TextView
             android:paddingTop="16dp"
@@ -36,7 +43,6 @@
             android:paddingRight="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Year/Session: 2018-19"
             android:textStyle="bold"
             android:textSize="@dimen/fab_margin"
             android:layout_below="@+id/t1"
@@ -47,18 +53,17 @@
             android:paddingRight="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Designetion: Lecturer"
             android:textStyle="bold"
             android:textSize="@dimen/fab_margin"
             android:layout_below="@+id/t2"
             android:id="@+id/t3"/>
+
         <TextView
             android:paddingTop="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Topics: Quantum Computing"
             android:textStyle="bold"
             android:textSize="@dimen/fab_margin"
             android:layout_below="@+id/t3"
@@ -69,7 +74,6 @@
             android:paddingRight="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mail: redhat@gmail.com"
             android:textStyle="bold"
             android:textSize="@dimen/fab_margin"
             android:layout_below="@+id/t4"
