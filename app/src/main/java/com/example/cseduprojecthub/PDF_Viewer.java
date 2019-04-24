@@ -54,6 +54,8 @@ public class PDF_Viewer extends AppCompatActivity {
         }
     }
 
+    DownloadManager downloadManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +84,13 @@ public class PDF_Viewer extends AppCompatActivity {
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DownloadTask(PDF_Viewer.this,pr.paperLink);
+                //new DownloadTask(PDF_Viewer.this,pr.paperLink);
+                downloadManager=(DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                Uri uri=Uri.parse(pr.paperLink);
+                DownloadManager.Request request=new DownloadManager.Request(uri);
+                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                Long reference=downloadManager.enqueue(request);
+
             }
         });
         //webView.loadUrl(url);

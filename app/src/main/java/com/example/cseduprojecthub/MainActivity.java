@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent myIntent = new Intent(MainActivity.this, home.class);
 
-            Toast.makeText(MainActivity.this, currentUser.getEmail(),
-                    Toast.LENGTH_SHORT).show();
             MainActivity.this.startActivity(myIntent);
             finish();
         }
@@ -99,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
                         String URL = "https://arxiv.org/pdf/1706.03762.pdf";
                         Intent myIntent = new Intent(MainActivity.this, home.class);
 
-                        Toast.makeText(MainActivity.this, user.getEmail(),
-                                Toast.LENGTH_SHORT).show();
                         MainActivity.this.startActivity(myIntent);
                         finish();
 

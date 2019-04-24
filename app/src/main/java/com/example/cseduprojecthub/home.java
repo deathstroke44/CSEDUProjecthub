@@ -141,6 +141,12 @@ public class home extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_manage) {
+            Session fragment=new Session();
+            android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment);
+            fragmentTransaction.commit();
+
+
 
         } else if (id == R.id.nav_share) {
             FirebaseAuth mAuth=FirebaseAuth.getInstance();

@@ -3,6 +3,7 @@ package com.example.cseduprojecthub;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +15,18 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +46,11 @@ public class UploadFragment extends Fragment {
     private Spinner year;
     private int y;
     private ArrayList list=new ArrayList();
+    private String username="bug";
+    private DatabaseReference mDatabase;
+    private User curr;
+    private FirebaseAuth mAuth;
+
     public UploadFragment() {
         // Required empty public constructor
     }
@@ -47,6 +61,30 @@ public class UploadFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view=inflater.inflate(R.layout.fragment_upload, container, false);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        mAuth=FirebaseAuth.getInstance();
+        final FirebaseUser currentUser = mAuth.getCurrentUser();
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot users : dataSnapshot.getChildren())
+                {
+                    User temp=new User();
+                    temp=users.getValue(User.class);
+                    if(temp.getMail().equals(currentUser.getEmail()))
+                    {
+                        username=temp.Name;
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         for(int i=1990;i<=2019;i++)
         {
             list.add(i);
@@ -62,6 +100,7 @@ public class UploadFragment extends Fragment {
         ArrayAdapter<String> aadapter=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,list);
         aadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         year.setAdapter(aadapter);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +141,7 @@ public class UploadFragment extends Fragment {
                 FirebaseAuth mauth=FirebaseAuth.getInstance();
                 FirebaseUser current=mauth.getCurrentUser();
 
-                pr.setAuthor(current.getEmail());
+                pr.setAuthor(username);
                 pr.setProjectName(nm);
                 pr.setProjectDescroption(ds);
                 pr.setPaperLink(pl);

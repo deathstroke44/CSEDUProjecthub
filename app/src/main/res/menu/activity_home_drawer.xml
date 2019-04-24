@@ -15,7 +15,7 @@
             android:title="My Profile" />
         <item
             android:id="@+id/nav_manage"
-            android:title="Tools" />
+            android:title="Students" />
     </group>
 
     <item android:title="Communicate">
